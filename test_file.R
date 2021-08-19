@@ -69,3 +69,50 @@ my_mean <- function(numbers) {
 }
 
 my_mean(st_joe_land$sale_price)
+
+
+
+#Apply the function. FUN=function
+apply(X = st_joe_land[, c("sale_price", "year_built")], 
+      MARGIN = 2, 
+      FUN = mean)
+#another way to get the answer, the mean value of A|B
+colMeans(st_joe_land[, c("sale_price", "year_built")])
+
+
+   
+   
+  sample(x = c(1:1000, NA),size = 1001)  |>
+  mean()
+  
+  mean(x)
+  mean(x,na.rm =TRUE)
+  
+  # Create a dataframe;rnorm(normal distrubution);cor(correlation)
+  cor_data <- data.frame(x = sample(c(rnorm(n = 100), NA), 10000, replace = TRUE), 
+                         y = sample(c(rnorm(n = 100), NA), 10000, replace = TRUE), 
+                         z = sample(c(rnorm(n = 100), NA), 10000, replace = TRUE))
+  
+  cor(cor_data,use = "pairwise.complete.obs") #Look for NAs
+  
+  # Back to St_joe Land
+  land_value <- read.csv("stJoeLand.csv")
+  
+  #give a summary of stats of every column
+  summary(land_value)
+  summary(land_value$school_district)
+
+  #convert to factor!!! factor means classification 
+  #Summary is a great function but sometimes you need convert (factor)
+  summary(as.factor(land_value$school_district))
+  
+  #seq = sequence of numbers
+  factor(seq(from = 1, to = 10, by = .5)) |> 
+    as.character() |> #run here|>
+    as.numeric() |>
+    mean()   #???
+
+  
+  
+  
+  
